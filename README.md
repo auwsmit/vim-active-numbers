@@ -1,4 +1,4 @@
-# ActiveNumbers
+## ActiveNumbers
 
 Only show line numbers in the active window.
 
@@ -9,7 +9,9 @@ indicate which window is active.
 ### Basic Usage
 
 Works out of the box™, and will follow however you have the `'number'` and
-`'relativenumber'` options set. These are usually set in your vimrc:
+`'relativenumber'` options set.
+
+These are usually set in your vimrc:
 
     set number relativenumber
 
@@ -39,7 +41,7 @@ ActiveNumbers comes with two functions for when you need more control.
 Example: `:ActiveNumbersIgnore | set nu nornu` to have persistent, non-relative
 line numbers in the current window.
 
-Another example: `tabdo windo ActiveNumbersIgnore!` to stop ignoring all windows.
+Another example: `:tabdo windo ActiveNumbersIgnore!` to stop ignoring all windows.
 
 ### Excluded Filetypes
 
@@ -77,7 +79,7 @@ vimrc. (Or include a subset if you like micro-optimization :P)
 ### Thanks
 
 I got some ideas (namely excluded filetypes) and some source code cues from
-numbers.vim and CursorLineCurrentWindow.  I copied this basic readme format from
+numbers.vim and CursorLineCurrentWindow.  I got this readme format from
 [Sneak](https://github.com/justinmk/vim-sneak).
 
 ### Bugs
