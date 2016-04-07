@@ -2,8 +2,8 @@
 
 Only show line numbers in the active window.
 
-Clear the clutter of line numbers outside the current window. Line numbers
-aren't usually relevant outside of the current file, anyway. It can also help
+Clear the clutter of line numbers outside the current window.  Line numbers
+usually aren't relevant outside of the current file, anyway. This can also help
 indicate which window is active.
 
 ### Basic Usage
@@ -27,13 +27,13 @@ change them as you would with `set` or `setlocal`.
 
 ActiveNumbers comes with two functions for when you need more control.
 
-**Enable, Disable, or Toggle the plugin entirely:**
+**1. Enable, Disable, or Toggle the plugin entirely:**
 
     :ActiveNumbers on
     :ActiveNumbers off
     :ActiveNumbers <no-arguments> = toggle
 
-**Ignore the current window:**
+**2. Ignore the current window:**
 
     :ActiveNumbersIgnore  = window ignored by ActiveNumbers
     :ActiveNumbersIgnore! = window acknowledged by ActiveNumbers
@@ -78,14 +78,14 @@ vimrc. (Or include a subset if you like micro-optimization :P)
 
 ### Thanks
 
-I got some ideas (namely excluded filetypes) and some source code cues from
-numbers.vim and CursorLineCurrentWindow.  I got this readme format from
+I got some ideas (namely excluded filetypes) numbers.vim and some code from
+CursorLineCurrentWindow.  The basic readme format came from
 [Sneak](https://github.com/justinmk/vim-sneak).
 
 ### Bugs
 
-None that I know of. If you find any bugs or unexpected behavior, or if you have
-a suggestion for improvement, please post an issue.
+If you find any bugs or unexpected behavior, or if you have a suggestion for
+improvement, please post an issue.
 
 ### License
 
@@ -94,3 +94,4 @@ MIT. See the LICENSE file in this repository.
 ### TODO
 
 * Write help docs
+* Add compatibility for numbers.vim

@@ -1,6 +1,6 @@
-" active-numbers.vim - Only show line numbers in the active window
+" ActiveNumbers - Only show line numbers in the active window
 " Author:     Austin W. Smith
-" Version:    1.0
+" Version:    1.0.1
 
 if exists('g:loaded_activenumbers')
   finish
@@ -87,10 +87,10 @@ function! s:PluginOnOff(type)
   else
     if a:type == 'off'
       let g:actnum_enabled = 0
-      echo 'active-numbers disabled'
+      echo 'ActiveNumbers disabled'
     elseif a:type == 'on'
       let g:actnum_enabled = 1
-      echo 'active-numbers enabled'
+      echo 'ActiveNumbers enabled'
       " refresh windows
       let currwin=winnr()
       tabdo windo call <SID>OnEnter()
@@ -121,12 +121,12 @@ endfunction
 function! s:WindowIgnore(bang)
   if !a:bang
     let w:actnum_ignore = 1
-    echo 'Window ignored by active-numbers'
+    echo 'Window ignored by ActiveNumbers'
   else
     if exists('w:actnum_ignore')
       unlet w:actnum_ignore
     endif
-    echo 'Window acknowledged by active-numbers'
+    echo 'Window acknowledged by ActiveNumbers'
   endif
 endfunction
 command! -bang -bar ActiveNumbersIgnore call <SID>WindowIgnore(<bang>0)
@@ -136,6 +136,7 @@ command! -bang -bar ActiveNumbersIgnore call <SID>WindowIgnore(<bang>0)
 
 augroup active_numbers
   au!
+  au User Startified call <SID>OnEnter()
   au WinEnter,VimEnter * call <SID>OnEnter()
   au WinLeave * call <SID>OnLeave()
 augroup END
