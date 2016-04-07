@@ -78,11 +78,13 @@ vimrc. (Or include a subset if you like micro-optimization :P)
 
 ### Thanks
 
-I got some ideas (namely excluded filetypes) numbers.vim and some code from
-CursorLineCurrentWindow.  The basic readme format came from
+I got some ideas and code cues from numbers.vim and CursorLineCurrentWindow.
+The basic readme format came from
 [Sneak](https://github.com/justinmk/vim-sneak).
 
 ### Bugs
+
+Currently incompatible with numbers.vim
 
 If you find any bugs or unexpected behavior, or if you have a suggestion for
 improvement, please post an issue.
