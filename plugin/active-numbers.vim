@@ -1,6 +1,6 @@
 " ActiveNumbers - Only show line numbers in the active window
 " Author:     Austin W. Smith
-" Version:    1.0.1
+" Version:    1.1.1
 
 if exists('g:loaded_activenumbers')
   finish
@@ -137,8 +137,8 @@ command! -bang -bar ActiveNumbersIgnore call <SID>WindowIgnore(<bang>0)
 augroup active_numbers
   au!
   au User Startified call <SID>OnEnter()
-  au WinEnter,VimEnter * call <SID>OnEnter()
-  au WinLeave * call <SID>OnLeave()
+  au WinEnter,BufEnter,VimEnter * call <SID>OnEnter()
+  au WinLeave,BufLeave * call <SID>OnLeave()
 augroup END
 
 " vim: set foldmethod=marker:
