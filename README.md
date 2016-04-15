@@ -15,25 +15,26 @@ These are usually set in your vimrc:
 
     set number relativenumber
 
-Alternatively you can set globals to be more explicit:
+Alternatively you can set the globals to be more explicit:
 
     let g:active_number = 1
     let g:active_relativenumber = 1
 
-If you want to change how numbers are displayed while Vim is running, just
-change them as you would with `set` or `setlocal`.
-
 ### Functions
 
-ActiveNumbers comes with two functions for when you need more control.
+**1. Change the appearance of active line numbers**
+    :SetActiveNumbers {option(s)}
 
-**1. Enable, Disable, or Toggle the plugin entirely:**
+Works just like normal :set, but also updates the plugin.
+Example: `:SetActiveNumbers nu! rnu!` to toggle current options.
+
+**2. Enable, Disable, or Toggle the plugin entirely:**
 
     :ActiveNumbers on
     :ActiveNumbers off
-    :ActiveNumbers <no-arguments> = toggle
+    :ActiveNumbers {no-arguments} = toggle
 
-**2. Ignore the current window:**
+**3. Ignore the current window:**
 
     :ActiveNumbersIgnore  = window ignored by ActiveNumbers
     :ActiveNumbersIgnore! = window acknowledged by ActiveNumbers
@@ -84,8 +85,6 @@ The basic readme format came from
 
 ### Bugs
 
-Currently incompatible with numbers.vim
-
 If you find any bugs or unexpected behavior, or if you have a suggestion for
 improvement, please post an issue.
 
@@ -96,4 +95,3 @@ MIT. See the LICENSE file in this repository.
 ### TODO
 
 * Write help docs
-* Add compatibility for numbers.vim
