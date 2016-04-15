@@ -23,10 +23,12 @@ Alternatively you can set the globals to be more explicit:
 ### Functions
 
 **1. Change the appearance of active line numbers**
+
     :SetActiveNumbers {option(s)}
 
-Works just like normal :set, but also updates the plugin.
-Example: `:SetActiveNumbers nu! rnu!` to toggle current options.
+Works just like normal `:set`, but also updates the plugin.
+
+Example: `:SetActiveNumbers rnu!` to toggle relative numbers.
 
 **2. Enable, Disable, or Toggle the plugin entirely:**
 
