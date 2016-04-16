@@ -22,7 +22,7 @@ Alternatively you can set the globals to be more explicit:
 
 ### Functions
 
-**1. Change the appearance of active line numbers**
+**1. Change the appearance of active line numbers:**
 
     :SetActiveNumbers {option(s)}
 
