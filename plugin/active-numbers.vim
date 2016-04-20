@@ -1,6 +1,6 @@
 " ActiveNumbers - Only show line numbers in the active window
 " Author:     Austin W. Smith
-" Version:    2.0.0
+" Version:    2.0.1
 
 if exists('g:loaded_activenumbers')
   finish
@@ -122,7 +122,8 @@ command! -complete=option -nargs=* SetActiveNumbers call <SID>ChangeNumbers(<q-a
 
 augroup active_numbers
   au!
-  au User Startified call <SID>OnEnter()
   au WinEnter,BufEnter,VimEnter * call <SID>OnEnter()
   au WinLeave,BufLeave * call <SID>OnLeave()
+  au User Startified call <SID>OnEnter()
+  au FileType dirvish call <SID>OnEnter()
 augroup END
