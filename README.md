@@ -1,7 +1,5 @@
 ## ActiveNumbers
 
-Only show line numbers in the active window.
-
 Clear the clutter of line numbers outside the current window.  Line numbers
 usually aren't relevant outside of the current file, anyway. This can also help
 indicate which window is active.
@@ -63,19 +61,12 @@ vimrc. (Or include a subset if you like micro-optimization :P)
 
 ### Installation
 
-- Manual installation:
-  - Copy the files to your `.vim` directory (`_vimfiles` on Windows).
-- [Pathogen](https://github.com/tpope/vim-pathogen)
-  - `cd ~/.vim/bundle && git clone git://github.com/AssailantLF/vim-active-numbers.git`
-- [Vundle](https://github.com/gmarik/vundle)
-  1. Add `Plugin 'AssailantLF/vim-active-numbers'` to .vimrc
-  2. Run `:PluginInstall`
-- [NeoBundle](https://github.com/Shougo/neobundle.vim)
-  1. Add `NeoBundle 'AssailantLF/vim-active-numbers'` to .vimrc
-  2. Run `:NeoBundleInstall`
 - [vim-plug](https://github.com/junegunn/vim-plug)
-  1. Add `Plug 'AssailantLF/vim-active-numbers'` to .vimrc
-  2. Run `:PlugInstall`
+  - `Plug 'AssailantLF/vim-active-numbers'`
+- [Pathogen](https://github.com/tpope/vim-pathogen)
+  - `git clone git://github.com/AssailantLF/vim-active-numbers.git ~/.vim/bundle/vim-active-numbers`
+- Manual installation:
+  - Copy the files to your `.vim` directory (`vimfiles` on Windows)
 
 ### Related plugins
 
@@ -87,12 +78,11 @@ vimrc. (Or include a subset if you like micro-optimization :P)
 
 I got some ideas and code cues from numbers.vim and CursorLineCurrentWindow.
 The basic readme format came from
-[Sneak](https://github.com/justinmk/vim-sneak).
+[sneak.vim](https://github.com/justinmk/vim-sneak).
 
 ### Bugs
 
-If you find any bugs or unexpected behavior, or if you have a suggestion for
-improvement, please post an issue.
+See the issue tracker, and if you come across any bugs, please post an issue for it.
 
 ### License
 
