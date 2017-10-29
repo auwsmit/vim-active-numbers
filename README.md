@@ -6,6 +6,10 @@ Clear the clutter of line numbers outside the current window.  Line numbers
 usually aren't relevant outside of the current file, anyway. This can also help
 indicate which window is active.
 
+<p align="center">
+  <img src="https://raw.github.com/AssailantLF/images/master/vimactivenumbers.gif">
+</p>
+
 ### Basic Usage
 
 Works out of the box™, and will follow however you have the `'number'` and
