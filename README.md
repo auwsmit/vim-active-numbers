@@ -1,4 +1,5 @@
-## ActiveNumbers
+vim-active-numbers
+==================
 
 Clear the clutter of line numbers outside the current window.  Line numbers
 usually aren't relevant outside of the current file, anyway. This can also help
@@ -8,7 +9,8 @@ indicate which window is active.
   <img src="https://raw.github.com/AssailantLF/images/master/vimactivenumbers.gif">
 </p>
 
-### Basic Usage
+Basic Usage
+-----------
 
 Works out of the box™, and will follow however you have the `'number'` and
 `'relativenumber'` options set.
@@ -22,7 +24,8 @@ Alternatively you can set the globals to be more explicit:
     let g:active_number = 1
     let g:active_relativenumber = 1
 
-### Functions
+Optional Commands
+-----------------
 
 **1. Change the appearance of active line numbers:**
 
@@ -48,7 +51,8 @@ line numbers in the current window.
 
 Another example: `:tabdo windo ActiveNumbersIgnore!` to stop ignoring all windows.
 
-### Excluded Filetypes
+Excluded Filetypes
+------------------
 
 Some plugins and filetypes don't need line numbers. Here are the filetypes
 ignored by default:
@@ -59,35 +63,41 @@ ignored by default:
 In order to add more to the list, just put a superset of the above in your
 vimrc. (Or include a subset if you like micro-optimization :P)
 
-### Installation
+Installation
+------------
 
 - [vim-plug](https://github.com/junegunn/vim-plug)
-  - `Plug 'AssailantLF/vim-active-numbers'`
+  - `Plug 'auwsmit/vim-active-numbers'`
 - [Pathogen](https://github.com/tpope/vim-pathogen)
-  - `git clone git://github.com/AssailantLF/vim-active-numbers.git ~/.vim/bundle/vim-active-numbers`
+  - `git clone git://github.com/auwsmit/vim-active-numbers.git ~/.vim/bundle/vim-active-numbers`
 - Manual installation:
   - Copy the files to your `.vim` directory (`vimfiles` on Windows)
 
-### Related plugins
+Related plugins
+---------------
 
 * [numbers.vim](https://github.com/myusuf3/numbers.vim)
 * [CursorLineCurrentWindow](https://github.com/vim-scripts/CursorLineCurrentWindow)
 * [diminactive.vim](https://github.com/blueyed/vim-diminactive)
 
-### Thanks
+Thanks
+------
 
 I got some ideas and code cues from numbers.vim and CursorLineCurrentWindow.
 The basic readme format came from
 [sneak.vim](https://github.com/justinmk/vim-sneak).
 
-### Bugs
+Bugs
+----
 
 See the issue tracker, and if you come across any bugs, please post an issue for it.
 
-### License
+License
+-------
 
 MIT. See the LICENSE file in this repository.
 
-### TODO
+TODO
+----
 
 * Write help docs
