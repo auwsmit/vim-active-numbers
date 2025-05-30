@@ -1,9 +1,7 @@
 vim-active-numbers
 ==================
 
-Clear the clutter of line numbers outside the current window.  Line numbers
-usually aren't relevant outside of the current file, anyway. This can also help
-indicate which window is active.
+Only show line numbers in the current active window.
 
 <p align="center">
   <img src="https://raw.github.com/AssailantLF/images/master/vimactivenumbers.gif">
@@ -12,44 +10,43 @@ indicate which window is active.
 Basic Usage
 -----------
 
-Works out of the box™, and will follow however you have the `'number'` and
+Works out of the box, and will follow however you have the `'number'` and
 `'relativenumber'` options set.
 
 These are usually set in your vimrc:
 
     set number relativenumber
 
-Alternatively you can set the globals to be more explicit:
+It also automatically updates whenever those options are changed.
 
-    let g:active_number = 1
-    let g:active_relativenumber = 1
+Optional Unnecessary Commands
+-----------------------------
 
-Optional Commands
------------------
-
-**1. Change the appearance of active line numbers:**
-
-    :SetActiveNumbers {option(s)}
-
-Works just like normal `:set`, but also updates the plugin.
-
-Example: `:SetActiveNumbers rnu!` to toggle relative numbers.
-
-**2. Enable, Disable, or Toggle the plugin entirely:**
+**1. Enable, Disable, or Toggle the plugin entirely:**
 
     :ActiveNumbers on
     :ActiveNumbers off
     :ActiveNumbers {no-arguments} = toggle
 
-**3. Ignore the current window:**
+**2. Ignore the current window:**
 
     :ActiveNumbersIgnore  = window ignored by ActiveNumbers
     :ActiveNumbersIgnore! = window acknowledged by ActiveNumbers
 
-Example: `:ActiveNumbersIgnore | set nu nornu` to have persistent, non-relative
-line numbers in the current window.
+Example: `:ActiveNumbersIgnore | set nu nornu` to keep persistent, non-relative
+line numbers which in that window. ActiveNumbers is now ignoring that window.
 
 Another example: `:tabdo windo ActiveNumbersIgnore!` to stop ignoring all windows.
+
+**3. Change the appearance of active line numbers:**
+
+:triangular_flag_on_post: *This command is pointless unless you have a really old version of vim. Just use `:set` rather than this command.* :triangular_flag_on_post:
+
+:SetActiveNumbers {option(s)}
+
+Works just like normal `:set`, but also updates the plugin.
+
+Example: `:SetActiveNumbers rnu!` to toggle relative numbers.
 
 Excluded Filetypes
 ------------------
@@ -60,8 +57,7 @@ ignored by default:
     let g:actnum_exclude =
           \ [ 'unite', 'tagbar', 'startify', 'undotree', 'gundo', 'vimshell', 'w3m' ]
 
-In order to add more to the list, just put a superset of the above in your
-vimrc. (Or include a subset if you like micro-optimization :P)
+Put this in your vimrc to exclude what you want.
 
 Installation
 ------------
@@ -101,3 +97,4 @@ TODO
 ----
 
 * Write help docs
+* Update gif
