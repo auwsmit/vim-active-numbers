@@ -1,6 +1,6 @@
 " ActiveNumbers - Only show line numbers in the active window
 " Author:     Austin W. Smith
-" Version:    2.0.1
+" Version:    2.1.0
 
 if exists('g:loaded_activenumbers')
   finish
@@ -110,7 +110,7 @@ command! -bang -bar ActiveNumbersIgnore call <SID>WindowIgnore(<bang>0)
 function! s:ChangeNumbers(args) abort
   let opts = split(a:args)
   for opt in opts
-    exec 'set '.opt
+    exec 'silent! set '.opt
   endfor
   let g:active_number = &number
   let g:active_relativenumber = &relativenumber
@@ -122,6 +122,9 @@ command! -complete=option -nargs=* SetActiveNumbers call <SID>ChangeNumbers(<q-a
 
 augroup active_numbers
   au!
+  if exists('##OptionSet')
+    au OptionSet nu,rnu call <SID>ChangeNumbers()
+  endif
   au WinEnter,BufEnter,VimEnter * call <SID>OnEnter()
   au WinLeave,BufLeave * call <SID>OnLeave()
   au User Startified call <SID>OnEnter()
