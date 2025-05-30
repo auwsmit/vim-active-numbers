@@ -19,8 +19,8 @@ These are usually set in your vimrc:
 
 It also automatically updates whenever those options are changed.
 
-Optional Unnecessary Commands
------------------------------
+Optional Commands
+-----------------
 
 **1. Enable, Disable, or Toggle the plugin entirely:**
 
