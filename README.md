@@ -1,7 +1,7 @@
 vim-active-numbers
 ==================
 
-Only show line numbers in the current active window.
+Only show line numbers in the current active window. Helps save some screen space.
 
 <p align="center">
   <img src="https://raw.github.com/AssailantLF/images/master/vimactivenumbers.gif">
@@ -22,25 +22,27 @@ It also automatically updates whenever those options are changed.
 Optional Commands
 -----------------
 
-**1. Enable, Disable, or Toggle the plugin entirely:**
+**1. Enable or Disable the plugin entirely:**
 
+    :ActiveNumbers {no-arguments} = toggle
     :ActiveNumbers on
     :ActiveNumbers off
-    :ActiveNumbers {no-arguments} = toggle
 
 **2. Ignore the current window:**
 
     :ActiveNumbersIgnore  = window ignored by ActiveNumbers
     :ActiveNumbersIgnore! = window acknowledged by ActiveNumbers
 
-Example: `:ActiveNumbersIgnore | set nu nornu` to keep persistent, non-relative
-line numbers which in that window. ActiveNumbers is now ignoring that window.
+Example: `:ActiveNumbersIgnore | setlocal nu nornu` to keep persistent, non-relative
+line numbers in that window which ActiveNumbers will ignore.
 
 Another example: `:tabdo windo ActiveNumbersIgnore!` to stop ignoring all windows.
 
 **3. Change the appearance of active line numbers:**
 
-:triangular_flag_on_post: *This command is pointless unless you have a really old version of vim. Just use `:set` rather than this command.* :triangular_flag_on_post:
+:triangular_flag_on_post: *This command is unnecessary unless you have a really
+old version of vim that lacks the OptionSet feature. Just use `:set` rather
+than this command.* :triangular_flag_on_post:
 
 :SetActiveNumbers {option(s)}
 
@@ -57,7 +59,7 @@ ignored by default:
     let g:actnum_exclude =
           \ [ 'unite', 'tagbar', 'startify', 'undotree', 'gundo', 'vimshell', 'w3m' ]
 
-Put this in your vimrc to exclude what you want.
+Put this in your vimrc and modify to exclude what you want.
 
 Installation
 ------------
