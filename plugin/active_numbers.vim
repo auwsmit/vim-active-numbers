@@ -1,6 +1,6 @@
 " ActiveNumbers - Only show line numbers in the active window
 " Author:     Austin W. Smith
-" Version:    2.1.0
+" Version:    2.2.0
 
 if exists('g:loaded_activenumbers')
   finish
@@ -56,6 +56,16 @@ function! s:RefreshWindows() abort
   execute currwin . 'wincmd w'
 endfunction
 
+function! s:UpdateOptions(args) abort
+  let opts = split(a:args)
+  for opt in opts
+    exec 'silent! set '.opt
+  endfor
+  let g:active_number = &number
+  let g:active_relativenumber = &relativenumber
+  " call <SID>RefreshWindows()
+endfunction
+
 " Toggle/Enable/Disable entire plugin
 " :ActiveNumbers <no-arguments> = toggle
 " :ActiveNumbers {on|off} = enable|disable
@@ -107,26 +117,16 @@ command! -bang -bar ActiveNumbersIgnore call <SID>WindowIgnore(<bang>0)
 
 " :SetActiveNumbers {option}
 " works like regular set, also updates the plugin
-function! s:ChangeNumbers(args) abort
-  let opts = split(a:args)
-  for opt in opts
-    exec 'silent! set '.opt
-  endfor
-  let g:active_number = &number
-  let g:active_relativenumber = &relativenumber
-  call <SID>RefreshWindows()
-endfunction
-command! -complete=option -nargs=* SetActiveNumbers call <SID>ChangeNumbers(<q-args>)
+command! -complete=option -nargs=* SetActiveNumbers call <SID>UpdateOptions(<q-args>)
 
 " ==AUTOCOMMANDS==
 
 augroup active_numbers
   au!
   if exists('##OptionSet')
-    au OptionSet nu,rnu call <SID>ChangeNumbers()
+    au OptionSet number,relativenumber
+          \ if v:option_type == 'global' | call <SID>UpdateOptions('') | endif
   endif
   au WinEnter,BufEnter,VimEnter * call <SID>OnEnter()
   au WinLeave,BufLeave * call <SID>OnLeave()
-  au User Startified call <SID>OnEnter()
-  au FileType dirvish call <SID>OnEnter()
 augroup END
