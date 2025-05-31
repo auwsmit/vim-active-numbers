@@ -1,7 +1,7 @@
 vim-active-numbers
 ==================
 
-Only show line numbers in the current active window. Helps save some screen space.
+Only show line numbers in the current active window. Save some screen space.
 
 <p align="center">
   <img src="https://raw.github.com/AssailantLF/images/master/vimactivenumbers.gif">
