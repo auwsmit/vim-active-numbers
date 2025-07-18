@@ -81,7 +81,7 @@ function! s:UpdateOptions(args) abort
 endfunction
 
 " Toggle/Enable/Disable entire plugin
-" :ActiveNumbers <no-arguments> = toggle
+" :ActiveNumbers {<none>|toggle} = toggle
 " :ActiveNumbers {on|off} = enable|disable
 function! s:PluginOnOff(type) abort
   if a:type == '' || a:type == 'toggle'
