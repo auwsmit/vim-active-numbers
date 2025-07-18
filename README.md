@@ -17,14 +17,15 @@ These are usually set in your vimrc:
 
     set number relativenumber
 
-It also automatically updates whenever those options are changed.
+It also automatically updates whenever those options are changed
+(doesn't update with `:setlocal`).
 
 Optional Commands
 -----------------
 
 **1. Enable or Disable the plugin entirely:**
 
-    :ActiveNumbers {no-arguments} = toggle
+    :ActiveNumbers toggle | <no args>
     :ActiveNumbers on
     :ActiveNumbers off
 
@@ -33,33 +34,43 @@ Optional Commands
     :ActiveNumbersIgnore  = window ignored by ActiveNumbers
     :ActiveNumbersIgnore! = window acknowledged by ActiveNumbers
 
-Example: `:ActiveNumbersIgnore | setlocal nu nornu` to keep persistent, non-relative
-line numbers in that window which ActiveNumbers will ignore.
+Example: `:ActiveNumbersIgnore | setlocal nu nornu` to keep persistent,
+non-relative line numbers in that window which ActiveNumbers will ignore.
 
 Another example: `:tabdo windo ActiveNumbersIgnore!` to stop ignoring all windows.
 
 **3. Change the appearance of active line numbers:**
 
-:triangular_flag_on_post: *This command is unnecessary unless you have a really
-old version of vim that lacks the OptionSet feature. Just use `:set` rather
-than this command.* :triangular_flag_on_post:
+    :SetActiveNumbers {option(s)}
 
-:SetActiveNumbers {option(s)}
+This command is only necessary if you disable auto-updating via the
+`g:activenumbers_autoupdate` option.
 
 Works just like normal `:set`, but also updates the plugin.
 
 Example: `:SetActiveNumbers rnu!` to toggle relative numbers.
 
-Excluded Filetypes
-------------------
+Filetype and Plugin Exceptions
+------------------------------
 
-Some plugins and filetypes don't need line numbers. Here are the filetypes
-ignored by default:
+For compatibility with specific filetypes and/or plugins, these options are available:
 
-    let g:actnum_exclude =
-          \ [ 'unite', 'tagbar', 'startify', 'undotree', 'gundo', 'vimshell', 'w3m' ]
+**1. Exclude specific filetypes (these are the defaults).**
 
-Put this in your vimrc and modify to exclude what you want.
+    let g:activenumbers_exclude = [ 'unite', 'tagbar', 'startify', 'undotree', 'gundo', 'vimshell', 'w3m' ]
+
+Let me know if there's something you want to be added as a default.
+
+**2. Disable auto-updating options.**
+
+Enabled by default, this updates the plugin whenever `'number'` or
+'`relativenumber`' are updated globally (not `:setlocal`). This can cause
+problems if any plugins ever change global line number options.
+
+When auto-updating is disabled, you can use the `:SetActiveNumbers` just like
+`:set` to update the plugin's 'active' line numbers without having to reload Vim.
+
+    let g:activenumbers_autoupdate = 0
 
 Installation
 ------------
@@ -94,9 +105,3 @@ License
 -------
 
 MIT. See the LICENSE file in this repository.
-
-TODO
-----
-
-* Write help docs
-* Update gif
