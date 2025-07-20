@@ -1,6 +1,6 @@
 " ActiveNumbers - Only show line numbers in the active window
 " Author:     Austin W. Smith
-" Version:    2.3.0
+" Version:    2.3.1
 
 " TODO:
 " - update readme gif
@@ -70,8 +70,10 @@ function! s:RefreshWindows() abort
 endfunction
 
 " Update when global 'number' and 'relativenumber' are modified/changed
-function! s:UpdateOptions(args) abort
-  if !g:activenumbers_autoupdate | return | endif
+function! s:UpdateOptions(args, autoupdate = 0) abort
+  if a:autoupdate && !g:activenumbers_autoupdate
+    return
+  endif
   let opts = split(a:args)
   for opt in opts
     exec 'silent! set '.opt
@@ -142,7 +144,9 @@ augroup activenumbers
   " but that's enough of an edge-case that I don't really mind until someone complains
   if exists('##OptionSet') && g:activenumbers_autoupdate
     au OptionSet number,relativenumber
-          \ if v:option_type == 'global' | call <SID>UpdateOptions('') | endif
+          \ if v:option_type == 'global' |
+          \   call <SID>UpdateOptions('', 1) |
+          \ endif
   endif
   au WinEnter,BufEnter,VimEnter * call <SID>OnEnter()
   au WinLeave,BufLeave * call <SID>OnLeave()
